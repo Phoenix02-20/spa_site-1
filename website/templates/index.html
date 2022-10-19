@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {% block title %}
+                SPA
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"
+  </head>
+  <body style="background-color:rgba(2, 39, 12, 0.43);">
+    <nav>
+      <div class="logo">
+        spa
+      </div>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout'%}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'register'%}">Register</a></li>
+        <li><a href="{% url 'login'%}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <div class="centered">H A R M O N Y</div>
+    <section style="background-image:url({% static 'img/bg1.png' %})"></section>
+    <div class="mid">
+
+      <div id="container" style="white-space:nowrap;">
+
+      <div id="image" style="display:inline;">
+          <img src="{% static 'img/small1e.jpg' %}" alt=""/>
+      </div>
+
+      <div id="texts" style="display:inline; white-space:nowrap;">
+          <h1>ABOUT US</h1>
+          <br><br>
+          <p>The great place with you and your life.<br>
+          Customized agenda for each member is unique. we <br>
+        establish a proposal for your whole body and <br>
+        schedule an exact relax message when you need. <br>
+        We are here with you all the working time. touching <br>
+      freedom when you are here, feeling your soul when <br>
+      you are here. Tell us what you feel, changing and <br>
+      which part do you eager more relaxing.</p>
+      </div>
+      </div>
+  </div>
+  <br><br><br>
+  <div class="txt">
+    <div id="image" style="display:inline;">
+        <img src="{% static 'img/small3.jpg' %}" alt=""/>
+    </div>
+    <h1>TREATEMENTS</h1>
+    <h3>Warm Stone</h3>
+
+    <p>Dissolve away stress and tension with the weight <br>
+      and warmth of smooth, naturally jade and basalt, <br>
+      stones, known for their healing properties. Rhythmic <br>
+      massage combing flowing Hawaiian style Lami Lami <br>
+      techniques with warn stones giding over your skin, <br>
+      pressure point stones placement and vibrational <br>
+      elements to melt away muscle tension. This <br>
+      luxurious massage will deeply relax and ground <br>
+      your body and mind.</p>
+  </div>
+
+  </body>
+</html>

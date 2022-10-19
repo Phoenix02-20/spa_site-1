@@ -1,0 +1,107 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"
+        <title>
+          {% block title %}
+                Contact Us
+      {% endblock %}
+    </head>
+<body>
+  <nav>
+    <div class="logo">
+      spa
+    </div>
+    <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="{% url 'register'%}">Register</a></li>
+      <li><a href="{% url 'login'%}">Login</a></li>
+      <li><a href="{% url 'logout'%}">Logout</a></li>
+    </ul>
+  </nav>
+<br><br><br><br><br>
+  <section style="background-image:url({% static 'img/bg1.png' %})"></section>
+
+		<!-- contact-3-area-start -->
+    {% if name %}
+      <br><br><br>
+      <center>
+        <h2>Thanks {{ name }} !</h2>
+        <p>We received your email and will respond shortly...</p>
+      </center>
+      <br> <br>
+    {% else %}
+
+    		<div class="contact-3-area contact-2 contact-3 pt-120 pb-50">
+    			<div class="container">
+    				<div class="row">
+    					<div class="col-md-8">
+    						<div class="contact-wrapper-3 mb-30">
+    							<div class="contact-3-text">
+    								<h3>Leave Us a Message - {{ name }}</h3>
+    							</div>
+    							<form action="{% url 'contact' %}" id="contact-form" method='POST'>
+                    {% csrf_token %}
+    								<div class="col-sm-6">
+    									<input name="name" type="text" placeholder="name*" required>
+    								</div>
+    								<div class="col-sm-6">
+    									<input name="email" type="email" placeholder="email*" required>
+    								</div>
+    								<div class="col-sm-12">
+    									<textarea name="message" cols="30" rows="10" placeholder="message" id="message"></textarea>
+    								</div>
+    								<button type="submit">send message</button>
+    							</form>
+    							<p class="form-message"></p>
+    						</div>
+    					</div>
+    					<div class="col-md-4">
+    						<div class="contact-3-right-wrapper mb-30">
+    							<div class="contact-3-right-info">
+    								<h3>Contact Us</h3>
+    								<p>A quick solution to your everyday problems </p>
+    							</div>
+    							<div class="contact-3-address">
+    								<div class="contact-3-icon">
+    									<i class="zmdi zmdi-pin"></i>
+    								</div>
+    								<div class="address-text">
+    									<span class="location">Location :</span>
+    									<span class="USA">260A, Sec 11, Panchkula</span>
+    								</div>
+    							</div>
+    							<div class="contact-3-address">
+    								<div class="contact-3-icon">
+    									<i class="zmdi zmdi-phone"></i>
+    								</div>
+    								<div class="address-text">
+    									<span class="location">phone :</span>
+    									<span class="USA">+91-8679690</span>
+    								</div>
+    							</div>
+    							<div class="contact-3-address">
+    								<div class="contact-3-icon">
+    									<i class="zmdi zmdi-email"></i>
+    								</div>
+    								<div class="address-text">
+    									<span class="location">mail :</span>
+    									<span class="USA"> priya282016@yahoo.com</span>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+      {% endif%}
+
+</body>
+</html>
