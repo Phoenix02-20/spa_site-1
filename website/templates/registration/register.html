@@ -1,0 +1,61 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"
+        <title>
+          {% block title %}
+                Register
+      {% endblock %}
+      </title>
+
+      <style>
+      	.center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 20%;
+      }
+  </style>
+    </head>
+    <body>
+      <nav>
+        <div class="logo">
+          spa
+        </div>
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="{% url 'register'%}">Register</a></li>
+          <li><a href="{% url 'login'%}">Login</a></li>
+          <li><a href="{% url 'logout'%}">Logout</a></li>
+        </ul>
+      </nav>
+    <br><br><br><br><br>
+      <section style="background-image:url({% static 'img/bg1.png' %})"></section>
+
+      <h1>Register...</h1>
+<br/><br/>
+<div class="container">
+  <div class="form-group">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-secondary">Register</button>
+  </div>
+</div>
+
+<br>
+<br><br><br><br>
+<br><br><br><br>
+
+
+</body>
+</html>
